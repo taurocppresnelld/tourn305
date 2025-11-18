@@ -41,7 +41,7 @@ accelerate launch --num_cpu_threads_per_process 1 train_db.py
     --output_name=<学習したモデル出力時のファイル名> 
     --save_model_as=safetensors 
     --prior_loss_weight=1.0 
-    --max_train_steps=4000 
+    --max_train_steps=2500 
     --learning_rate=1e-6 
     --optimizer_type="AdamW8bit" 
     --xformers 
@@ -111,7 +111,7 @@ accelerate launch --num_cpu_threads_per_process 1 train_db.py
     --resolution=512 
     --train_batch_size=1 
     --learning_rate=1e-6 
-    --max_train_steps=4000 
+    --max_train_steps=2500 
     --use_8bit_adam 
     --xformers 
     --mixed_precision="bf16" 

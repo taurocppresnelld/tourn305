@@ -232,7 +232,7 @@ def create_config(task_id, model_path, model_name, model_type, expected_repo_nam
         config["network_dim"] = network_config["network_dim"]
         config["network_alpha"] = network_config["network_alpha"]
         config["network_args"] = network_config["network_args"]
-    config["seed"] = random.randint(1, 1000000)
+
     # Save config to file
     config_path = os.path.join(train_cst.IMAGE_CONTAINER_CONFIG_SAVE_PATH, f"{task_id}.toml")
     save_config_toml(config, config_path)

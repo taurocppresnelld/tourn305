@@ -1,75 +1,68 @@
-# Data & Input
+no_metadata = true
 async_upload = true
-caption_extension = ".txt"
-train_data_dir = "img"
-
-# Latent & Cache
-cache_latents = true
-cache_latents_to_disk = true
-
-# Bucket & Resolution
 bucket_no_upscale = true
 bucket_reso_steps = 64
+cache_latents = true
+cache_latents_to_disk = true
+caption_extension = ".txt"
+dynamo_backend = "no"
 enable_bucket = true
-max_bucket_reso = 2048
-min_bucket_reso = 256
-resolution = "1024,1024"
-
-# Precision & Memory
-mixed_precision = "bf16"
-no_half_vae = true
-full_fp16 = false
 gradient_checkpointing = true
 low_vram = false
-xformers = true
 
-# HuggingFace Hub
+###### huggingface ######
 huggingface_path_in_repo = "checkpoint"
 huggingface_repo_id = ""
 huggingface_repo_type = "model"
 huggingface_repo_visibility = "public"
 huggingface_token = ""
 
-# Output & Logging
+max_bucket_reso = 2048
+max_data_loader_n_workers = 2
+max_grad_norm = 1
+max_token_length = 75
+min_bucket_reso = 256
+mixed_precision = "bf16"
+no_half_vae = true
 output_dir = "test_sdxl_sd3"
 output_name = "last"
-training_comment = ""
+pretrained_model_name_or_path = ""
+prior_loss_weight = 1
+resolution = "1024,1024"
 sample_prompts = ""
 sample_sampler = "euler_a"
 save_model_as = "safetensors"
 save_precision = "bf16"
+full_fp16 = false
+train_data_dir = "img"
+training_comment = ""
+xformers = true
 
-# Training Control
+###### steps and epochs ######
 save_every_n_epochs = 5
+
+###### loss function ######
+loss_type = "l2"
+
+###### batch size ######
 train_batch_size = 4
 gradient_accumulation_steps = 1
-max_data_loader_n_workers = 2
-max_grad_norm = 1
-max_token_length = 75
-prior_loss_weight = 1
-loss_type = "huber"
-huber_c = 0.05
-huber_schedule = "snr"
 
-# Optimizer & Scheduler
+###### optimizer ######
 optimizer_type = "adamw"
 optimizer_args = [ "betas=(0.9, 0.999)", "weight_decay=1e-04", "eps=1e-08",]
-learning_rate = 2e-5
 unet_lr = 2e-5
 text_encoder_lr = 2e-6
+
+###### lr scheduler ######
 lr_scheduler = "cosine"
 lr_warmup_steps = 25
 
-# Backend
-dynamo_backend = "no"
-
-# Pretrained Model
-pretrained_model_name_or_path = ""
-
-# Noise offset #
+###### noise offset ######
 noise_offset_type = "Original"
 noise_offset = 0.0357
 
+###### misc ######
 network_alpha = -1
 network_dim = -1
 network_module = "networks.lora"
@@ -80,4 +73,4 @@ clip_skip = 1
 max_timestep = 1000
 min_snr_gamma = 8
 scale_weight_norms = 5
-seed = 42
+seed = 2951032222
